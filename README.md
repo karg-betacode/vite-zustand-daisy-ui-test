@@ -1,3 +1,8 @@
+# TODO list
+
+1. Add playwright for ui test
+2. Run playwright script in github hooks. Run test upon push to github.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
