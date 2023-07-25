@@ -9,12 +9,10 @@ type TodoItem = {
 
 interface TodoListState {
   todos: TodoItem[],
-  editRowId: string | null,
   add: (text: string) => void,
   remove: (id: string) => void,
   update: (id: string, text: string, done: boolean) => void,
   clear: () => void,
-  setEditRow: (id: string | null) => void
 }
 
 const useTodoListStore = create<TodoListState>(set => (
@@ -46,7 +44,7 @@ const useTodoListStore = create<TodoListState>(set => (
       };
     }),
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    update: (id: string, text: string, done = false) => set((state) => { 
+    update: (id: string, text: string) => set((state) => { 
       const todoIndex = state.todos.findIndex(x => x.id == id);
       const oldTodo = state.todos[todoIndex];
       
@@ -56,12 +54,7 @@ const useTodoListStore = create<TodoListState>(set => (
         todos: [...state.todos]
       };
     }),
-    clear: () => {},
-    setEditRow: (id: string) => { 
-      set(() => ({
-        editRowId: id
-      }));
-    }
+    clear: () => {}
   })
 );
 

@@ -15,7 +15,6 @@ function EditForm({ todo, setIsEditting }: { todo: TodoItem, setIsEditting: Disp
     console.log('formData', data);
 
     todoList.update(id, data.text as string, false);
-    todoList.setEditRow(null);
 
     e.preventDefault();
     form.reset();
